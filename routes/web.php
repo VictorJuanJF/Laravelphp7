@@ -13,7 +13,7 @@
 
 Route::get('/', 'InicioController@index')->name('inicio');
 
-Auth::routes();
+Auth::routes(); //brus
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/caia', function(){
