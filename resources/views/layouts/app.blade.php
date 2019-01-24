@@ -17,13 +17,15 @@
     <link href="{{asset('css/material-kit.css?v=2.0.5')}}" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{asset('demo/demo.css')}}" rel="stylesheet" />
+    @yield('css')
+
 </head>
 
 <body class="@yield('body-class') sidebar-collapse">
     <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
         <div class="container">
             <div class="navbar-translate">
-                <a class="navbar-brand" href="https://demos.creative-tim.com/material-kit/index.html">
+                <a class="navbar-brand" href="{{url('/')}}">
                 EasyResearch </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="sr-only">Toggle navigation</span>

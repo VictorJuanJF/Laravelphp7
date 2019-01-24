@@ -16,7 +16,12 @@ Route::get('/', 'InicioController@index')->name('inicio');
 Auth::routes(); //brus
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/caia', function(){
-	return view('home');
-})->name('home');
-// Route::get('/inicio', 'inicio');
+Route::get('/admin/products','ProductController@index'); //listado
+Route::get('/admin/products/create','ProductController@create'); //formulario registro
+Route::post('/admin/products','ProductController@store'); //registrar
+Route::get('/admin/products/{id}/edit','ProductController@edit'); //editar
+Route::post('/admin/products/{id}/edit','ProductController@update'); //guardar edicion
+Route::delete('/admin/products/{id}','ProductController@destroy'); //Eliminar
+
+//CR
+//UD
