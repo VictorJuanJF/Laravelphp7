@@ -37,8 +37,8 @@
             <thead>
               <tr>
                 <th class="text-center">#</th>
-                <th>Nombre</th>
-                <th class="col-md-4">Descripcion</th>
+                <th class="">Nombre</th>
+                <th class="">Descripcion</th>
                 <th>Categoría</th>
                 <th class="text-right">Precio</th>
                 <th class="text-right">Opciones</th>
@@ -56,9 +56,13 @@
                   <button type="button" rel="tooltip" title="Ver producto" class="btn btn-info">
                     <i class="material-icons">info</i>
                   </button>
+                  <a href="{{url('/admin/products/'.$product->id.'/images')}}" rel="tooltip" title="Ver imagenes" class="btn btn-warning">
+                    <i class="material-icons">image</i>
+                  </a>
                   <a href="{{url('/admin/products/'.$product->id.'/edit')}}" rel="tooltip" title="Editar producto" class="btn btn-success">
                     <i class="material-icons">edit</i>
                   </a>
+
                   <form method="POST" action="{{url('/admin/products/'.$product->id)}}">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
@@ -78,39 +82,5 @@
 
   </div>
 </div>
-<footer class="footer footer-default">
-  <div class="container">
-    <nav class="float-left">
-      <ul>
-        <li>
-          <a href="https://www.creative-tim.com">
-            Creative Tim
-          </a>
-        </li>
-        <li>
-          <a href="https://creative-tim.com/presentation">
-            About Us
-          </a>
-        </li>
-        <li>
-          <a href="http://blog.creative-tim.com">
-            Blog
-          </a>
-        </li>
-        <li>
-          <a href="https://www.creative-tim.com/license">
-            Licenses
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <div class="copyright float-right">
-      &copy;
-      <script>
-        document.write(new Date().getFullYear())
-      </script>, made with <i class="material-icons">favorite</i> by
-      <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
-    </div>
-  </div>
-</footer>
+
 @endsection
