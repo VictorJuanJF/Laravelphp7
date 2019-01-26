@@ -5,7 +5,6 @@ namespace appbrus\Http\Controllers;
 use Illuminate\Http\Request;
 use appbrus\Product;
 
-
 class ProductController extends Controller
 {
 	public function index(){
@@ -76,6 +75,4 @@ class ProductController extends Controller
 		$product->delete();
 		return back();
 	}
-
-
 }

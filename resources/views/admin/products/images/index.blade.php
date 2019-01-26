@@ -49,19 +49,23 @@
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <div class="footer justify-content-center">
-                  <a href="#pablo" class="btn btn-info btn-just-icon btn-fill btn-round">
-                    <i class="material-icons">subject</i>
-                  </a>
-                  <a href="#pablo" class="btn btn-success btn-just-icon btn-fill btn-round btn-wd">
-                    <i class="material-icons">mode_edit</i>
-                  </a>
                   <form method="post">
                     @csrf
                     {{method_field('DELETE')}}
                     <input type="hidden" name="image_id" value="{{$image->id}}">
-                    <button href="#pablo" class="btn btn-danger btn-just-icon btn-fill btn-round">
+                    <button href="#pablo" class="btn btn-danger btn-just-icon btn-fill btn-round" rel="tooltip" title="Eliminar">
                       <i class="material-icons">delete</i>
                     </button>
+                    @if($image->featured)
+                    <button type="button" class="btn btn-info btn-fab btn-fab-mini btn-round" rel="tooltip" title="Imagen destacada de este producto">
+                      <i class="material-icons">favorite</i>
+                    </button>
+                    @else
+                    <a href="{{url('/admin/products/'.$product->id.'/images/select/'.$image->id)}}" class="btn btn-primary btn-fab btn-fab-mini btn-round">
+                      <i class="material-icons">favorite</i>
+                    </a>
+                    @endif
+
                   </form>
                 </div>
 

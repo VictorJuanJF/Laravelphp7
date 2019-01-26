@@ -66,7 +66,7 @@
             <div class="team-player">
               <div class="card card-plain">
                 <div class="col-md-6 ml-auto mr-auto">
-                  <img src="{{$product->images()->first()?$product->images()->first()->image:''}}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
+                  <img src="{{$product->featured_image_url}}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
                 </div>
                 <h4 class="card-title">{{$product->name}}
                   <br>
@@ -86,7 +86,7 @@
           @endforeach
         </div>
       </div>
-      <div class="center">{{$products->links()}}</div>
+      {{-- <div class="center">{{$products->links()}}</div> --}}
     </div>
     <div class="section section-contacts">
       <div class="row">

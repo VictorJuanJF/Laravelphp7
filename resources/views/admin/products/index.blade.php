@@ -56,11 +56,12 @@
                   <button type="button" rel="tooltip" title="Ver producto" class="btn btn-info">
                     <i class="material-icons">info</i>
                   </button>
-                  <a href="{{url('/admin/products/'.$product->id.'/images')}}" rel="tooltip" title="Ver imagenes" class="btn btn-warning">
-                    <i class="material-icons">image</i>
-                  </a>
+
                   <a href="{{url('/admin/products/'.$product->id.'/edit')}}" rel="tooltip" title="Editar producto" class="btn btn-success">
                     <i class="material-icons">edit</i>
+                  </a>
+                  <a href="{{url('/admin/products/'.$product->id.'/images')}}" rel="tooltip" title="Ver imagenes" class="btn btn-warning">
+                    <i class="material-icons">image</i>
                   </a>
 
                   <form method="POST" action="{{url('/admin/products/'.$product->id)}}">
@@ -75,7 +76,7 @@
               @endforeach
             </tbody>
           </table>
-          <div class="center">{{$products->links()}}</div>
+          {{--  <div class="center">{{$products->links()}}</div> --}}
         </div>
       </div>
     </div>
