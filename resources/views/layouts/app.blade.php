@@ -61,6 +61,9 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
+                        
+
+                        <a class="dropdown-item" href="{{url('/home')}}">Dashboard</a>
                         @if(auth()->user()->admin)
                         <a class="dropdown-item" href="{{url('admin/products')}}">Gestionar Productos</a>
                         @endif

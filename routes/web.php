@@ -12,11 +12,14 @@
 */
 
 Route::get('/', 'InicioController@index')->name('inicio');
+Route::get('/products/{id}','ProductController@show'); //controlador con diferente namespace
+
+Route::post('/cart','CartDetailController@store'); //controlador con diferente namespace
 
 Auth::routes(); //brus
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::middleware(['auth','admin'])->prefix('admin')->group(function () {
+Route::middleware(['auth','admin'])->prefix('admin')->namespace('Admin')->group(function () {
 
 Route::get('/products','ProductController@index'); //listado
 Route::get('/products/create','ProductController@create'); //formulario registro
