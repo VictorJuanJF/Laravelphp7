@@ -14,7 +14,9 @@
 Route::get('/', 'InicioController@index')->name('inicio');
 Route::get('/products/{id}','ProductController@show'); //controlador con diferente namespace
 
-Route::post('/cart','CartDetailController@store'); //controlador con diferente namespace
+Route::post('/cart','CartDetailController@store'); //
+Route::delete('/cart','CartDetailController@destroy'); //e
+Route::post('/order','CartController@update'); //e
 
 Auth::routes(); //brus
 Route::get('/home', 'HomeController@index')->name('home');

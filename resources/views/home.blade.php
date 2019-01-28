@@ -10,9 +10,9 @@
 
     <div class="section">
       <h2 class="title text-center">Dashboard</h2>
-      @if (session('status'))
+      @if (session('notification'))
       <div class="alert alert-success" role="alert">
-        {{ session('status') }}
+        {{ session('notification') }}
       </div>
       @endif
       <ul class="nav nav-pills nav-pills-icons" role="tablist">
@@ -32,6 +32,8 @@
         </a>
       </li>
     </ul>
+    <hr>
+    <p>Tu carrito de compras presenta {{auth()->user()->cart->details->count()}} productos.</p>
     <div class="tab-content tab-space">
       <div class="tab-pane active" id="dashboard-1">
 
@@ -68,9 +70,10 @@
 
 
 
-                  <form method="POST" action="{{url('/admin/products/'.$detail->product->id)}}">
+                  <form method="POST" action="{{url('/cart')}}">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
+                    <input type="hidden" name="cart_detail_id" value="{{$detail->id}}">
                     <button type="submit" rel="tooltip" title="Eliminar producto" class="btn btn-danger">
                       <i class="material-icons">close</i>
                     </button>
@@ -82,6 +85,14 @@
           </table>
         </ul>
 
+      </div>
+      <div class="text-center">
+        <form method="post" action="{{url('/order')}}">
+          @csrf
+          <button class="btn btn-primary btn-round text-center">
+            <i class="material-icons">done</i> Realizar pedido
+          </button>
+        </form>
       </div>
 
       <div class="tab-pane" id="tasks-1">
